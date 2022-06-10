@@ -37,11 +37,8 @@ defmodule Touchpad.MixProject do
       {:toolshed, "~> 0.2.13"},
 
       # Scenic
-      {:scenic, "~> 0.10"},
-      {:scenic_sensor, "~> 0.7"},
-      {:scenic_driver_glfw, "~> 0.10", targets: :host},
-      {:scenic_driver_nerves_rpi, "~> 0.10", targets: @all_targets},
-      {:scenic_driver_nerves_touch, "~> 0.10", targets: @all_targets},
+      {:scenic, "~> 0.11.0-beta.0"},
+      {:scenic_driver_local, "~> 0.11.0-beta.0"},
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.11.6", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},

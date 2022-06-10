@@ -8,9 +8,8 @@ config :touchpad, :viewport, %{
   opts: [scale: 1.0],
   drivers: [
     %{
-      module: Scenic.Driver.Glfw,
-      name: :glfw,
-      opts: [title: "MIX_TARGET=host, app=:touchpad"]
+      module: Scenic.Driver.Local,
+      window: [title: "Local Window", resizeable: true]
     }
   ]
 }
