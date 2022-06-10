@@ -25,6 +25,19 @@ config :nerves, source_date_epoch: "1654843902"
 # configuring ring_logger.
 
 config :logger, backends: [RingLogger]
+
+config :touchpad, :viewport, [
+  name: :main_viewport,
+  default_scene: {Touchpad.Scene.Calendar, nil},
+  size: {800, 480},
+  drivers: [
+    [
+      module: Scenic.Driver.Local,
+      name: :local
+    ]
+  ]
+]
+
 if Mix.target() == :host or Mix.target() == :"" do
   import_config "host.exs"
 else

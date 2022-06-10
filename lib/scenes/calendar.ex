@@ -16,7 +16,8 @@ defmodule Touchpad.Scene.Calendar do
            translate: {40, 40}
          )
 
-  def init(_scene_args, _options) do
-    {:ok, @graph, push: @graph}
+  def init(scene, _params, _opts) do
+    scene = push_graph(scene, @graph)
+    {:ok, scene}
   end
 end
