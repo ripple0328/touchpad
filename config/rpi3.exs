@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :touchpad, :viewport, %{
   name: :main_viewport,

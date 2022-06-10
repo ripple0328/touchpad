@@ -1,5 +1,3 @@
-import Config
-
 # Add configuration that is only needed when running on the host here.
 import Config
 
@@ -11,7 +9,8 @@ config :touchpad, :viewport, %{
   drivers: [
     %{
       module: Scenic.Driver.Glfw,
-      opts: [title: "MIX_TARGET=host, app = :touchpad"]
+      name: :glfw,
+      opts: [title: "MIX_TARGET=host, app=:touchpad"]
     }
   ]
 }
