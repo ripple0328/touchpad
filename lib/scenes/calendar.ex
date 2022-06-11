@@ -3,21 +3,13 @@ defmodule Touchpad.Scene.Calendar do
   alias Scenic.Graph
   import Scenic.Primitives
 
-  @graph Graph.build()
-         |> group(
-           fn g ->
-             g
-             |> rounded_rectangle({400, 200, 8},
-               stroke: {2, {:color, :orange}},
-               fill: :white
-             )
-             |> text("Test Screen", font_size: 22, translate: {10, 28}, fill: :black)
-           end,
-           translate: {40, 40}
-         )
-
-  def init(scene, _params, _opts) do
-    scene = push_graph(scene, @graph)
+  @impl Scenic.Scene
+ def init(scene, _params, _opts) do
+    graph = Graph.build()
+    |> text("Hello World", font_size: 22, translate: {20, 80})
+    scene =
+      scene
+      |> push_graph(graph)
     {:ok, scene}
   end
 end

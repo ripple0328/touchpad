@@ -11,28 +11,25 @@ defmodule Touchpad.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Touchpad.Supervisor]
 
-    children =
-      [
-        # Children for all targets
-        # Starts a worker by calling: Touchpad.Worker.start_link(arg)
-        # {Touchpad.Worker, arg},
-      ] ++ children(target())
+    # children =
+      # [
+      #   # Children for all targets
+      #   # Starts a worker by calling: Touchpad.Worker.start_link(arg)
+      #   # {Touchpad.Worker, arg},
+      # ] ++ children(target())
+    view_port = Application.get_env(:touchpad, :viewport)
+    children = [
+      {Scenic, [view_port]},
+    ]
 
     Supervisor.start_link(children, opts)
   end
 
-  def viewport_config do
-    Application.get_env(:touchpad, :viewport)
-  end
   # List all child processes to be supervised
   def children(:host) do
-    [
       # Children that only run on the host
       # Starts a worker by calling: Touchpad.Worker.start_link(arg)
       # {Touchpad.Worker, arg},
-     {Scenic,  [viewport_config()]
-
-    ]
   end
 
   def children(_target) do
@@ -40,7 +37,6 @@ defmodule Touchpad.Application do
     # Starts a worker by calling: Touchpad.Worker.start_link(arg)
     # {Touchpad.Worker, arg},
 
-    [{Scenic,  [viewport_config()]]
   end
 
   def target() do
