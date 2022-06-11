@@ -13,7 +13,10 @@ config :touchpad, target: Mix.target()
 # Customize non-Elixir parts of the firmware. See
 # https://hexdocs.pm/nerves/advanced-configuration.html for details.
 
-config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
+config :nerves, :firmware,
+  provisioning: :nerves_hub_link,
+  rootfs_overlay: "rootfs_overlay"
+
 
 # Set the SOURCE_DATE_EPOCH date for reproducible builds.
 # See https://reproducible-builds.org/docs/source-date-epoch/ for more information
@@ -37,6 +40,14 @@ config :touchpad, :viewport, [
     ]
   ]
 ]
+
+config :nerves_hub_user_api,
+  host: "api.cremini.peridio.com"
+config :nerves_hub_cli,
+  org: System.get_env("NERVES_HUB_ORG")
+config :nerves_hub_link,
+  device_api_host: "device.cremini.peridio.com",
+  fwup_public_keys: [:devkey]
 
 if Mix.target() == :host or Mix.target() == :"" do
   import_config "host.exs"

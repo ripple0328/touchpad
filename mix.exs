@@ -40,8 +40,11 @@ defmodule Touchpad.MixProject do
       {:scenic, "~> 0.11.0-beta.0"},
       {:scenic_driver_local, "~> 0.11.0-beta.0"},
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.11.6", targets: @all_targets},
+      {:nerves_runtime, "~> 0.12", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
+      {:nerves_hub_cli, "~> 0.12", runtime: false},
+      {:nerves_hub_link, "~> 1.2", targets: @all_targets},
+      {:nerves_time, "~> 0.4.5", targets: @all_targets},
       # Network
       # Dependencies for specific targets
       # NOTE: It's generally low risk and recommended to follow minor version
