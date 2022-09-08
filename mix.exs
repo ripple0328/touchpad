@@ -10,7 +10,7 @@ defmodule Touchpad.MixProject do
       app: @app,
       version: @version,
       elixir: "~> 1.9",
-      archives: [nerves_bootstrap: "~> 1.10"],
+      archives: [nerves_bootstrap: "~> 1.11"],
       start_permanent: Mix.env() == :prod,
       build_embedded: true,
       deps: deps(),
@@ -31,19 +31,19 @@ defmodule Touchpad.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.7.16", runtime: false},
-      {:shoehorn, "~> 0.8.0"},
+      {:nerves, "~> 1.9.0", runtime: false, override: true},
+      {:shoehorn, "~> 0.9.1"},
       {:ring_logger, "~> 0.8.5"},
-      {:toolshed, "~> 0.2.13"},
+      {:toolshed, "~> 0.2.26"},
 
       # Scenic
-      {:scenic, "~> 0.11.0-beta.0"},
-      {:scenic_driver_local, "~> 0.11.0-beta.0"},
+      {:scenic, "~> 0.11.0"},
+      {:scenic_driver_local, "~> 0.11.0"},
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.12", targets: @all_targets},
+      {:nerves_runtime, "~> 0.13", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},
       {:nerves_hub_cli, "~> 0.12", runtime: false},
-      {:nerves_hub_link, "~> 1.2", targets: @all_targets},
+      {:nerves_hub_link, "~> 1.3", targets: @all_targets},
       {:nerves_time, "~> 0.4.5", targets: @all_targets},
       # Network
       # Dependencies for specific targets
@@ -51,12 +51,8 @@ defmodule Touchpad.MixProject do
       # bumps to Nerves systems. Since these include Linux kernel and Erlang
       # version updates, please review their release notes in case
       # changes to your application are needed.
-      {:nerves_system_rpi, "~> 1.19", runtime: false, targets: :rpi},
-      {:nerves_system_rpi0, "~> 1.19", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi3, "~> 1.19", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi4, "~> 1.19", runtime: false, targets: :rpi4},
-      {:nerves_system_bbb, "~> 2.13", runtime: false, targets: :bbb},
-      {:nerves_system_x86_64, "~> 1.19", runtime: false, targets: :x86_64}
+      {:nerves_system_rpi3, "~> 1.20", runtime: false, targets: :rpi3},
+      {:nerves_system_rpi4, "~> 1.20", runtime: false, targets: :rpi4},
     ]
   end
 
