@@ -54,14 +54,14 @@ defmodule Touchpad.Component.Nav do
       |> text("Scene:", translate: {15, 38}, align: :right, fill: text)
       |> dropdown(
         {[
-           {"Sensor", ScenicExample.Scene.Sensor},
-           {"Sensor (spec)", ScenicExample.Scene.SensorSpec},
-           {"Primitives", ScenicExample.Scene.Primitives},
-           {"Fills", ScenicExample.Scene.Fills},
-           {"Strokes", ScenicExample.Scene.Strokes},
-           {"Components", ScenicExample.Scene.Components},
-           {"Transforms", ScenicExample.Scene.Transforms},
-           {"Sprites", ScenicExample.Scene.Sprites}
+           {"Sensor", Touchpad.Scene.Sensor},
+           {"Sensor (spec)", Touchpad.Scene.SensorSpec},
+           {"Primitives", Touchpad.Scene.Primitives},
+           {"Fills", Touchpad.Scene.Fills},
+           {"Strokes", Touchpad.Scene.Strokes},
+           {"Components", Touchpad.Scene.Components},
+           {"Transforms", Touchpad.Scene.Transforms},
+           {"Sprites", Touchpad.Scene.Sprites}
          ], current_scene},
         id: :nav,
         translate: {90, 10}

@@ -3,16 +3,23 @@ defmodule Touchpad do
   Documentation for Touchpad.
   """
 
-  @doc """
-  Hello world.
+def start(_type, _args) do
+    # See https://hexdocs.pm/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: Touchpad.Supervisor]
 
-  ## Examples
+    # children =
+      # [
+      #   # Children for all targets
+      #   # Starts a worker by calling: Touchpad.Worker.start_link(arg)
+      #   # {Touchpad.Worker, arg},
+      # ] ++ children(target())
+    view_port = Application.get_env(:touchpad, :viewport)
+    children = [
+      {Scenic, [view_port]},
+      Touchpad.PubSub.Supervisor
+    ]
 
-      iex> Touchpad.hello
-      :world
-
-  """
-  def hello do
-    :world
+    Supervisor.start_link(children, opts)
   end
 end

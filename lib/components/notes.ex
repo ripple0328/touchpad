@@ -16,7 +16,7 @@ defmodule Touchpad.Component.Notes do
     {
       :error,
       """
-      #{IO.ANSI.red()}Invalid ScenicExample.Component.Notes specification
+      #{IO.ANSI.red()}Invalid Touchpad.Component.Notes specification
       Received: #{inspect(data)}
       #{IO.ANSI.yellow()}
       Notes data should be a string

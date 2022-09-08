@@ -22,7 +22,7 @@ defmodule Touchpad.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {Touchpad.Application, []},
+      mod: {Touchpad, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
