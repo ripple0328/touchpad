@@ -33,7 +33,7 @@ config :touchpad, :viewport, [
   name: :main_viewport,
   theme: :dark,
   default_scene: Touchpad.Scene.Components,
-  size: {800, 600},
+  size: {800, 480},
   drivers: [
     [
       module: Scenic.Driver.Local,
