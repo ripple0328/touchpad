@@ -39,6 +39,7 @@ defmodule Touchpad.MixProject do
       # Scenic
       {:scenic, "~> 0.11.0"},
       {:scenic_driver_local, "~> 0.11.0"},
+      {:scenic_clock, "~> 0.11.0"},
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.13", targets: @all_targets},
       {:nerves_pack, "~> 0.7.0", targets: @all_targets},

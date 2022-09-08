@@ -20,6 +20,7 @@ defmodule Touchpad.Application do
     view_port = Application.get_env(:touchpad, :viewport)
     children = [
       {Scenic, [view_port]},
+      Touchpad.PubSub.Supervisor
     ]
 
     Supervisor.start_link(children, opts)

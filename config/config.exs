@@ -28,15 +28,18 @@ config :nerves, source_date_epoch: "1654843902"
 # configuring ring_logger.
 
 config :logger, backends: [RingLogger]
-
+config :scenic, :assets, module: Touchpad.Assets
 config :touchpad, :viewport, [
   name: :main_viewport,
-  default_scene: {Touchpad.Scene.Calendar, nil},
-  size: {800, 480},
+  theme: :dark,
+  default_scene: Touchpad.Scene.Components,
+  size: {800, 600},
   drivers: [
     [
       module: Scenic.Driver.Local,
-      name: :local
+      name: :local,
+      window: [resizeable: false, title: "touchpad"],
+      on_close: :stop_system
     ]
   ]
 ]
@@ -45,9 +48,9 @@ config :nerves_hub_user_api,
   host: "api.cremini.peridio.com"
 config :nerves_hub_cli,
   org: System.get_env("NERVES_HUB_ORG")
-config :nerves_hub_link,
-  device_api_host: "device.cremini.peridio.com",
-  fwup_public_keys: [:devkey]
+# config :nerves_hub_link,
+#   device_api_host: "device.cremini.peridio.com",
+#   fwup_public_keys: [:devkey]
 
 if Mix.target() == :host or Mix.target() == :"" do
   import_config "host.exs"
